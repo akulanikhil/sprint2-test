@@ -1,4 +1,9 @@
+FROM eclipse-temurin:21-jdk-alpine AS build
+WORKDIR /build
+COPY . .
+RUN mvn -B clean package
+
 FROM eclipse-temurin:21-jre-alpine
 WORKDIR /app
-COPY target/team-skeleton.jar app.jar
+COPY --from=build /build/target/team-skeleton.jar app.jar
 ENTRYPOINT ["java", "-jar", "app.jar"]

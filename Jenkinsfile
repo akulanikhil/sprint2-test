@@ -6,11 +6,6 @@ pipeline {
                 checkout scm
             }
         }
-        stage('Build Jar') {
-            steps {
-                sh 'mvn -B clean package'
-            }
-        }
         stage('Build Image') {
             steps {
                 sh 'docker build -t team-skeleton .'
