@@ -2,6 +2,10 @@ package com.neueda.leap;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world from Nikhil");
+        System.out.println(getGreeting());
+    }
+
+    public static String getGreeting() {
+        return "Hello world from Nikhil";
     }
 }
